@@ -1,4 +1,4 @@
-# Gem Deals RestAPI
+# Gem Deals RestAPI <img style="height:45px; width:45px;" src="https://opengameart.org/sites/default/files/styles/medium/public/gems_preview.png" alt="gems"/>
 
 ## Установка/Запуск
 ```bash
