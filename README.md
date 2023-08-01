@@ -21,6 +21,14 @@ POST-запрос - Загрузка файла для обработки: Пр�
 curl -i -X POST -H "Content-Type: multipart/form-data" -F "deals=@<путь_до_файла>" http://127.0.0.1/api/v1/
 ```
 
+### Через Postman
+
+<details>
+  <summary>👆</summary>
+<img style="height:380px; width:1000px;" src="https://i.ibb.co/C9x68CX/post.png" alt="post"/>
+<img style="height:380px; width:1000px;" src="https://i.ibb.co/2F7zGjV/get.png" alt="get"/>
+</details>
+
 ## Ключевые особенности
 * Кэширование данных, возвращаемых GET-эндпоинтом, реализовано на основе [Redis](https://github.com/Peopl3s/gem-deals-drf-rest-api/blob/661864a8cbe49f7672d703d3872df88ed7c91474/gem_deals/gem_deals/settings/prod.py#L26)
 * Настройки проекта [разделены](https://github.com/Peopl3s/gem-deals-drf-rest-api/blob/661864a8cbe49f7672d703d3872df88ed7c91474/gem_deals/gem_deals/settings/prod.py#L1) на local и production (БД для local - SQLite, для prod - PostgreSQL)
