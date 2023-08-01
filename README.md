@@ -9,7 +9,7 @@ cd .\gem-deals-drf-rest-api\
 docker compose up
 ```
 ## Использование 
-API URL - http://127.0.0.1/api/v1 (принемает POST и GET-запросы).
+API URL - http://127.0.0.1/api/v1 (принимает POST и GET-запросы).
 
 GET-запрос - Выдача обработанных данных: В ответе содержится поле "response" со списком из 5 клиентов, потративших наибольшую сумму за весь период.
 ```bash
@@ -29,7 +29,7 @@ curl -i -X POST -H "Content-Type: multipart/form-data" -F "deals=@<путь_до
   python manage.py runserver --settings=gem_deals.settings.prod
   ```
 * Nginx отвечает за обработку входящих запросов на 80 порт и переадресацию их в uWSGI.
-* PostgreSQL, Nginx, Resis и DRF-приложение находятся в отдельных контенерах и управлются docker compose
+* PostgreSQL, Nginx, Redis и DRF-приложение находятся в отдельных контейнерах и управляются через docker compose
 * Код покрыт тестами (Django Test suite)
   ```bash
   python manage.py test --settings=gem_deals.settings.local
