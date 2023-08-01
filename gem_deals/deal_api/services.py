@@ -27,7 +27,7 @@ class CsvReader(BaseReader):
     def __init__(self, source_file: bytes) -> None:
         """Инициализация объекта.
         Args:
-            source_file (bytes): Файла в байтовом виде для создания экзепляра ридера.
+            source_file (bytes): Файла в байтовом виде для создания экземпляра ридера.
         Returns:
         """
         
@@ -40,9 +40,9 @@ class CsvReader(BaseReader):
     def _get_dialect(self, source_file: bytes|str) -> csv.Dialect | None:
         """Возвращает csv.Dialect для автоматического определения delimiter и escapechar.
         Args:
-            source_file (bytes): Файла в байтовом виде для создания экзепляра ридера.
+            source_file (bytes): Файла в байтовом виде для создания экземпляра ридера.
         Returns:
-            csv.Dialect | None: Диалет csv или None, если невозможно определить диалект.
+            csv.Dialect | None: Диалект csv или None, если невозможно определить диалект.
             https://docs.python.org/3/library/csv.html#dialects-and-formatting-parameters
         """
 
@@ -158,8 +158,8 @@ def _clear_db_data() -> None:
 def get_customer_data(customers: List[Dict[str, str]], field: str) -> List[str]:
     """Получает список со значениями ключа field из словарей списка customers.
     Args:
-        customers (List[Dict[str, str]]): Список клиентов (каждый клиент представле Dict).
-        field (str): Ключ, значение котого необходимо получить из списка словарей
+        customers (List[Dict[str, str]]): Список клиентов (каждый клиент представлен Dict).
+        field (str): Ключ, значение которого необходимо получить из списка словарей
     Returns:
         List[str] | None: Список значений ключа field или None, если файл невозможно обработать.
     """
@@ -188,7 +188,7 @@ def get_largest_amount_customers(limit: int) -> List[Dict[str, Any]]:
 
 
 def get_customer_gems(customer_id: str) -> "ValuesQuerySet[Gem, Any]":
-    """Возвращает список драгоценных камней, пренадлежащих определённому клиенту.
+    """Возвращает список драгоценных камней, принадлежащих определённому клиенту.
      Args:
         customer_id (str): ID клиента.
     Returns:
@@ -208,7 +208,7 @@ def get_same_customer_gems(
 ) -> List[Gem]:
     """Возвращает драгоценные камни из определённого перечня.
      Args:
-        customers_ids (List[str]): ID клиентов, которым пренадлежат камни.
+        customers_ids (List[str]): ID клиентов, которым принадлежат камни.
         find_gems (ValuesQuerySet[Gem, Any]): Набор камней, названия которых должны быть в результирующей выборке.
     Returns:
         List[Gem]: Драгоценные камни, которые есть у покупателей из списка customers_ids и названия которых пересекаются
