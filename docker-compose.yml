@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+ 
+  cache:
+    image: redis:7.0.4
+    restart: always
+    volumes:
+      - ./data/cache:/data
+
+  db:
+    image: postgres:14.2
+    restart: always
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      
+  web:
+    build: .
+    command: ["./wait-for-it.sh", "db:5432", "--",
+              "uwsgi", "--ini", "/code/config/uwsgi/uwsgi.ini"]
+    restart: always
+    env_file:
+      - ./env.dev
+    volumes:
+      - .:/code
+    environment:
+      - DJANGO_SETTINGS_MODULE=gem_deals.settings.prod
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    depends_on:
+      - db
+      - cache
+
+  nginx:
+    image: nginx:1.23.1
+    restart: always
+    volumes:
+      - ./config/nginx:/etc/nginx/templates
+      - .:/code
+    ports:
+      - "80:80"

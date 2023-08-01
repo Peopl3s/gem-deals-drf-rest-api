@@ -1,0 +1,74 @@
+Traceback (most recent call last):
+  File "C:\ProninTeamDRF\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProninTeamDRF\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProninTeamDRF\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProninTeamDRF\env\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProninTeamDRF\env\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProninTeamDRF\env\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\ProninTeamDRF\env\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\ProninTeamDRF\env\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\ProninTeamDRF\env\Lib\site-packages\rest_framework\views.py", line 416, in initial
+    self.check_throttles(request)
+  File "C:\ProninTeamDRF\env\Lib\site-packages\rest_framework\views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProninTeamDRF\env\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProninTeamDRF\env\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProninTeamDRF\env\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "C:\ProninTeamDRF\env\Lib\site-packages\redis\commands\core.py", line 1816, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProninTeamDRF\env\Lib\site-packages\redis\client.py", line 1266, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProninTeamDRF\env\Lib\site-packages\redis\connection.py", line 1461, in get_connection
+    connection.connect()
+  File "C:\ProninTeamDRF\env\Lib\site-packages\redis\connection.py", line 713, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+2023-08-01 20:28:09,299 [ERROR] django.request: Internal Server Error: /api/v1/
+Traceback (most recent call last):
+  File "C:\ProninTeamDRF\env\Lib\site-packages\redis\connection.py", line 707, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProninTeamDRF\env\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\ProninTeamDRF\env\Lib\site-packages\redis\connection.py", line 708, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\ProninTeamDRF\env\Lib\site-packages\redis\connection.py", line 1006, in _connect
+    raise err
+  File "C:\ProninTeamDRF\env\Lib\site-packages\redis\connection.py", line 994, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+2023-08-01 21:15:44,673 [WARNING] deal_api.views: Попытка обработки некорректного csv-файла.
+2023-08-01 21:15:44,674 [WARNING] django.request: Bad Request: /api/v1/
+2023-08-01 18:24:02,696 [WARNING] deal_api.views: Р—Р°РїСЂРѕСЃ РЅРµ СЃРѕРґРµСЂР¶РёС‚ С„Р°Р№Р».
+2023-08-01 18:24:02,704 [WARNING] django.request: Bad Request: /api/v1/
+2023-08-01 18:24:17,583 [WARNING] deal_api.views: РџРѕРїС‹С‚РєР° РѕР±СЂР°Р±РѕС‚РєРё РЅРµРєРѕСЂСЂРµРєС‚РЅРѕРіРѕ csv-С„Р°Р№Р»Р°.
+2023-08-01 18:24:17,586 [WARNING] django.request: Bad Request: /api/v1/
+2023-08-01 18:24:29,209 [WARNING] deal_api.views: РџРѕРїС‹С‚РєР° РѕР±СЂР°Р±РѕС‚РєРё РЅРµРєРѕСЂСЂРµРєС‚РЅРѕРіРѕ csv-С„Р°Р№Р»Р°.
+2023-08-01 18:24:29,212 [WARNING] django.request: Bad Request: /api/v1/
+2023-08-01 18:24:34,731 [WARNING] deal_api.views: РџРѕРїС‹С‚РєР° РѕР±СЂР°Р±РѕС‚РєРё РЅРµРєРѕСЂСЂРµРєС‚РЅРѕРіРѕ csv-С„Р°Р№Р»Р°.
+2023-08-01 18:24:34,733 [WARNING] django.request: Bad Request: /api/v1/
