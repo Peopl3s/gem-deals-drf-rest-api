@@ -22,20 +22,28 @@ curl -i -X POST -H "Content-Type: multipart/form-data" -F "deals=@<путь_до
 ```
 
 ## Ключевые особенности
-* Кэширование данных, возвращаемых GET-эндпоинтом, реализовано на основе Redis
-* Настройки проекта разделены на local и production (БД для local - SQLite, для prod - PostgreSQL)
+* Кэширование данных, возвращаемых GET-эндпоинтом, реализовано на основе [Redis](https://github.com/Peopl3s/gem-deals-drf-rest-api/blob/661864a8cbe49f7672d703d3872df88ed7c91474/gem_deals/gem_deals/settings/prod.py#L26)
+* Настройки проекта [разделены](https://github.com/Peopl3s/gem-deals-drf-rest-api/blob/661864a8cbe49f7672d703d3872df88ed7c91474/gem_deals/gem_deals/settings/prod.py#L1) на local и production (БД для local - SQLite, для prod - PostgreSQL)
   ```bash
   python manage.py runserver --settings=gem_deals.settings.local
   python manage.py runserver --settings=gem_deals.settings.prod
   ```
-* Nginx отвечает за обработку входящих запросов на 80 порт и переадресацию их в uWSGI.
-* PostgreSQL, Nginx, Redis и DRF-приложение находятся в отдельных контейнерах и управляются через docker compose
-* Код покрыт тестами (Django Test suite)
+* [Nginx](https://github.com/Peopl3s/gem-deals-drf-rest-api/blob/661864a8cbe49f7672d703d3872df88ed7c91474/config/nginx/default.conf.template#L1) отвечает за обработку входящих запросов на 80 порт и переадресацию их в uWSGI.
+* PostgreSQL, Nginx, Redis и DRF-приложение находятся в отдельных контейнерах и управляются через [docker compose](https://github.com/Peopl3s/gem-deals-drf-rest-api/blob/661864a8cbe49f7672d703d3872df88ed7c91474/docker-compose.yml#L1)
+* Код покрыт [тестами](https://github.com/Peopl3s/gem-deals-drf-rest-api/blob/661864a8cbe49f7672d703d3872df88ed7c91474/gem_deals/deal_api/tests/test_services.py#L1) (Django Test suite)
   ```bash
   python manage.py test --settings=gem_deals.settings.local
   ```
 * При обработке файлов [применяется DI](https://github.com/Peopl3s/gem-deals-drf-rest-api/blob/661864a8cbe49f7672d703d3872df88ed7c91474/gem_deals/deal_api/services.py#L15), что в дальнейшем облегчит добавление поддержки других форматов файлов
-* Обеспечена атомарность транзакций
+* Обеспечена [атомарность транзакций](https://github.com/Peopl3s/gem-deals-drf-rest-api/blob/661864a8cbe49f7672d703d3872df88ed7c91474/gem_deals/deal_api/services.py#L134)
+* Настроено [логирование](https://github.com/Peopl3s/gem-deals-drf-rest-api/blob/661864a8cbe49f7672d703d3872df88ed7c91474/gem_deals/gem_deals/settings/base.py#L134C1-L134C1) в файл
+* Код документирован, code style Black, используются аннотации типов.
+
+
+<details>
+  <summary>env-файлы в репозитории</summary>
+  <i>.env-файлы обычно не принято хранить в публичном репозитории (как правило использую заглушку по типу .env.example), но для удобства сдачи работы было принято решение оcтавить всё-таки их в репозитории.</i>
+</details>
   
 
 
