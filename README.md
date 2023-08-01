@@ -4,7 +4,7 @@
 ```bash
 git clone https://github.com/Peopl3s/gem-deals-drf-rest-api.git
 
-cd .\gem-deals-rest-api\
+cd .\gem-deals-drf-rest-api\
 
 docker compose up
 ```
