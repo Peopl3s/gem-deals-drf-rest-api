@@ -34,7 +34,7 @@ curl -i -X POST -H "Content-Type: multipart/form-data" -F "deals=@<путь_до
   ```bash
   python manage.py test --settings=gem_deals.settings.local
   ```
-* При обработке файлов [применяется DI](https://github.com/Peopl3s/gem-deals-drf-rest-api/blob/661864a8cbe49f7672d703d3872df88ed7c91474/gem_deals/deal_api/services.py#L15), что в дальнейшем облегчит добавление поддержки других форматов файлов
+* При обработке файлов [применяется DI](https://github.com/Peopl3s/gem-deals-drf-rest-api/blob/661864a8cbe49f7672d703d3872df88ed7c91474/gem_deals/deal_api/services.py#L15), что в дальнейшем облегчит добавление возможности обрабатыватть файлы других форматов
 * Обеспечена [атомарность транзакций](https://github.com/Peopl3s/gem-deals-drf-rest-api/blob/661864a8cbe49f7672d703d3872df88ed7c91474/gem_deals/deal_api/services.py#L134)
 * Настроено [логирование](https://github.com/Peopl3s/gem-deals-drf-rest-api/blob/661864a8cbe49f7672d703d3872df88ed7c91474/gem_deals/gem_deals/settings/base.py#L134C1-L134C1) в файл
 * Код документирован, code style Black, используются аннотации типов.
