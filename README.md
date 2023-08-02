@@ -1,4 +1,4 @@
-# Gem Deals RestAPI <img style="height:55px; width:55px;" src="https://opengameart.org/sites/default/files/styles/medium/public/gems_preview.png" alt="gems"/>
+![image](https://github.com/Peopl3s/gem-deals-drf-rest-api/assets/28685107/0c9c2616-4697-4d45-8fc2-b14229b5b3ff)# Gem Deals RestAPI <img style="height:55px; width:55px;" src="https://opengameart.org/sites/default/files/styles/medium/public/gems_preview.png" alt="gems"/>
 
 ## Установка/Запуск
 ```bash
@@ -36,7 +36,7 @@ curl -i -X POST -H "Content-Type: multipart/form-data" -F "deals=@<путь_до
   python manage.py runserver --settings=gem_deals.settings.local
   python manage.py runserver --settings=gem_deals.settings.prod
   ```
-* [Nginx](https://github.com/Peopl3s/gem-deals-drf-rest-api/blob/661864a8cbe49f7672d703d3872df88ed7c91474/config/nginx/default.conf.template#L1) отвечает за обработку входящих запросов на 80 порт и переадресацию их в uWSGI.
+* [Nginx](https://github.com/Peopl3s/gem-deals-drf-rest-api/blob/661864a8cbe49f7672d703d3872df88ed7c91474/config/nginx/default.conf.template#L1) отвечает за обработку входящих запросов на 80 порт и их переадресацию в uWSGI.
 * PostgreSQL, Nginx, Redis и DRF-приложение находятся в отдельных контейнерах и управляются через [docker compose](https://github.com/Peopl3s/gem-deals-drf-rest-api/blob/661864a8cbe49f7672d703d3872df88ed7c91474/docker-compose.yml#L1)
 * Код покрыт [тестами](https://github.com/Peopl3s/gem-deals-drf-rest-api/blob/661864a8cbe49f7672d703d3872df88ed7c91474/gem_deals/deal_api/tests/test_services.py#L1) (Django Test suite)
   ```bash
