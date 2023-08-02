@@ -1,4 +1,4 @@
-![image](https://github.com/Peopl3s/gem-deals-drf-rest-api/assets/28685107/0c9c2616-4697-4d45-8fc2-b14229b5b3ff)# Gem Deals RestAPI <img style="height:55px; width:55px;" src="https://opengameart.org/sites/default/files/styles/medium/public/gems_preview.png" alt="gems"/>
+# Gem Deals RestAPI <img style="height:55px; width:55px;" src="https://opengameart.org/sites/default/files/styles/medium/public/gems_preview.png" alt="gems"/>
 
 ## Установка/Запуск
 ```bash
